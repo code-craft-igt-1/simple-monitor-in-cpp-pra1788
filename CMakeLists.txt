@@ -18,7 +18,13 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-file(GLOB SOURCES "*.cpp")
+# List all source files explicitly (excluding test-monitor.cpp)
+set(SOURCES
+    monitor.cpp
+    vital_checks.cpp
+    warnings.cpp
+)
+
 add_executable(
     test-monitor
   ${SOURCES}
