@@ -1,4 +1,3 @@
-// warnings.cpp
 #include "./warnings.h"
 #include <iostream>
 #include <thread>

@@ -1,4 +1,3 @@
-// warnings.h
 #ifndef WARNINGS_H_
 #define WARNINGS_H_
 
