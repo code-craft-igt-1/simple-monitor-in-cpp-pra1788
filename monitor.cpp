@@ -1,38 +1,26 @@
 #include "./monitor.h"
-#include <assert.h>
-#include <thread>
-#include <chrono>
+#include <string>
 #include <iostream>
-using std::cout, std::flush, std::this_thread::sleep_for, std::chrono::seconds;
+#include "./vital_checks.h"
+#include "./warnings.h"
 
-int vitalsOk(float temperature, float pulseRate, float spo2) {
-  if (temperature > 102 || temperature < 95) {
-    cout << "Temperature is critical!\n";
-    for (int i = 0; i < 6; i++) {
-      cout << "\r* " << flush;
-      sleep_for(seconds(1));
-      cout << "\r *" << flush;
-      sleep_for(seconds(1));
-    }
-    return 0;
-  } else if (pulseRate < 60 || pulseRate > 100) {
-    cout << "Pulse Rate is out of range!\n";
-    for (int i = 0; i < 6; i++) {
-      cout << "\r* " << flush;
-      sleep_for(seconds(1));
-      cout << "\r *" << flush;
-      sleep_for(seconds(1));
-    }
-    return 0;
-  } else if (spo2 < 90) {
-    cout << "Oxygen Saturation out of range!\n";
-    for (int i = 0; i < 6; i++) {
-      cout << "\r* " << flush;
-      sleep_for(seconds(1));
-      cout << "\r *" << flush;
-      sleep_for(seconds(1));
-    }
-    return 0;
-  }
-  return 1;
+
+using std::cout;
+using std::endl;
+
+// Function to display a default warning
+void defaultWarning(const std::string& message) {
+    // Example implementation of displayWarning
+    // This function should be implemented or linked properly
+    // For now, it just prints the warning message
+    cout << "Warning: " << message << endl;
+}
+
+// Main function to check all vitals
+bool vitalsOk(float temperature, float pulseRate, float spo2, char tempUnit = 'F') {
+    bool tempOk = checkTemperature(temperature, tempUnit, defaultWarning);
+    bool pulseOk = checkPulseRate(pulseRate, defaultWarning);
+    bool spo2Ok = checkSpo2(spo2, defaultWarning);
+
+    return tempOk && pulseOk && spo2Ok;
 }

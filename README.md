@@ -46,3 +46,10 @@ Shorten the Semantic distance
 - Functional to express relation between input and output
 - Object oriented to encapsulate state with actions
 - Apect oriented to capture repeating aspects
+
+## Extending and Refactoring
+
+I have chosen Extension 1 and Extension 3 for the current assignment.
+
+- Extension 1: Early Warning
+- Extension 3: Accept input in different units
