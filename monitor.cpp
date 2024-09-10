@@ -1,9 +1,9 @@
 #include "./monitor.h"
+#include <string>
+#include <iostream>
 #include "./vital_checks.h"
 #include "./warnings.h"
 
-#include <string>
-#include <iostream>
 
 using std::cout;
 using std::endl;
